@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>ARDUINO</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="bower_components/c3/c3.css" media="screen" title="no title" charset="utf-8">
+  <link rel="stylesheet" href="style/main.css" media="screen" title="no title" charset="utf-8">
+</head>
+
+<body ng-app="halApp">
+
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <div id="chart"></div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div ng-controller="measurementsCtrl as vm">
+      <div class="col-md-offset-3 col-md-6">
+        <table class="table table-bordered table-striped table-hover">
+          <thead>
+            <tr>
+              <th>
+                VALUE
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="d in vm.dataOutput">
+              <td class="number">
+                {{ d.random | number }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- vendor -->
+  <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+  <script type="text/javascript" src="bower_components/angular/angular.js"></script>
+  <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+  <script type="text/javascript" src="bower_components/socket.io-client/socket.io.js"></script>
+  <script type="text/javascript" src="bower_components/d3/d3.js"></script>
+  <script type="text/javascript" src="bower_components/c3/c3.js"></script>
+
+  <!-- app -->
+  <script type="text/javascript" src="script/app.js"></script>
+  <script type="text/javascript" src="script/controllers/measurements.js"></script>
+  <script type="text/javascript" src="script/services/measurements.js"></script>
+</body>
+
+</html>
