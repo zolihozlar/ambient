@@ -9,7 +9,7 @@ app.use("/", express.static(__dirname));
 
 io.on('connection', sendData);
 
-setInterval(sendData, 1000);
+setInterval(sendData, 10000);
 function sendData() {
   mongoClient.connect('mongodb://localhost:27017/arduino', function(err, db) {
     if (err) {
@@ -25,8 +25,6 @@ function sendData() {
     });
   });
 };
-
-// setInterval(sendData(client), 1000);
 
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/index.html');

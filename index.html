@@ -24,14 +24,32 @@
           <thead>
             <tr>
               <th>
-                VALUE
+                TEMPERATURE
+              </th>
+              <th>
+                HUMIDITY
+              </th>
+              <th>
+                PHOTO
+              </th>
+              <th>
+                SOIL
               </th>
             </tr>
           </thead>
           <tbody>
             <tr ng-repeat="d in vm.dataOutput">
               <td class="number">
-                {{ d.random | number }}
+                {{ d.temperature | number }} / (18 - 30; 21 optimal)
+              </td>
+              <td class="number">
+                {{ d.humidity | number }}
+              </td>
+              <td class="number">
+                {{ d.photo | number }} / 800 (6 - 8 hours)
+              </td>
+              <td class="number">
+                {{ d.soil | number }} / (250 - 300)
               </td>
             </tr>
           </tbody>
