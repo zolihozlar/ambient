@@ -1,8 +1,8 @@
 import serial
-from pymongo import MongoClient
+import MySQLdb
 
-client = MongoClient()
-db = client.arduino
+conn = MySQLdb.connect(host= "localhost", user="", passwd="", db="ambient")
+x = conn.cursor()
 
 ser = serial.Serial('/dev/cu.usbmodem641', 9600)
 while 1 :
@@ -28,5 +28,8 @@ while 1 :
     soilEndIndex = read_chars.index("|", soilBeginningIndex);
     soil = read_chars[(soilBeginningIndex + 1):soilEndIndex]
 
-    # write to MongoDB
-    result = db.test.insert_one({"temperature": temperature, "humidity": humidity, "photo": photo, "soil": soil});
+    try:
+       x.execute("""INSERT INTO measurements (Temperature, Humidity, Light, Moisture) VALUES (%s,%s,%s,%s)""",(temperature,humidity,photo,soil))
+       conn.commit()
+    except:
+       conn.rollback()

@@ -40,16 +40,16 @@
           <tbody>
             <tr ng-repeat="d in vm.dataOutput">
               <td class="number">
-                {{ d.temperature | number }} / (18 - 30; 21 optimal)
+                {{ d.Temperature | number }} / (18 - 30; 21 optimal)
               </td>
               <td class="number">
-                {{ d.humidity | number }}
+                {{ d.Humidity | number }}
               </td>
               <td class="number">
-                {{ d.photo | number }} / 800 (6 - 8 hours)
+                {{ d.Light | number }} / 800 (6 - 8 hours)
               </td>
               <td class="number">
-                {{ d.soil | number }} / (250 - 300)
+                {{ d.Moisture | number }} / (250 - 300)
               </td>
             </tr>
           </tbody>

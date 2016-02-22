@@ -11,7 +11,7 @@
         data: {
           json: vm.dataOutput,
           keys: {
-            value: ['temperature', 'humidity', 'photo', 'soil']
+            value: ['Temperature', 'Humidity', 'Light', 'Moisture']
           }
         },
         axis: {
